@@ -67,7 +67,7 @@ public class PessoaSkillService {
 		else {
 			pessoaSkill = pessoaSkillRepository.save(pessoaSkillModel);
 		}
-		return pessoaSkill;
+		return pessoaSkillModel;
 	}
 	
 	@Transactional
