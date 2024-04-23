@@ -53,4 +53,26 @@ public class PessoaSkillService {
 		return listaPessoaSkillsResponse;
 	}
 	
+	public PessoaSkill pessoaSkillById(Long id) {
+		return pessoaSkillRepository.findByIdPessoaSkill(id).get();
+	}
+	
+	@Transactional
+	public PessoaSkill atualizarNivel(Long id, String nivel) {
+		PessoaSkill pessoaSkillModel = pessoaSkillById(id);
+		PessoaSkill pessoaSkill = new PessoaSkill();
+		if(pessoaSkillModel.getNivel() != nivel) {
+			pessoaSkillModel.setNivel(nivel);
+		}
+		else {
+			pessoaSkill = pessoaSkillRepository.save(pessoaSkillModel);
+		}
+		return pessoaSkill;
+	}
+	
+	@Transactional
+	public void deletarPessoaSkill(Integer id) {
+		pessoaSkillRepository.deleteById(id);
+	}
+	
 }
