@@ -1,5 +1,6 @@
 package br.com.neki.skills.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -25,6 +27,7 @@ public class Pessoa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "pessoas_seq", sequenceName = "pessoas_seq", allocationSize = 1)
 	@Column(name = "id_pessoa")
 	private Integer idPessoa;
 	@Column(name = "nome_pessoa")
@@ -37,7 +40,7 @@ public class Pessoa {
 	@Column(name = "senha")
 	private String senha;
 	@OneToMany
-	private List<PessoaSkill> pessoaSkills;
+	private List<PessoaSkill> pessoaSkills = new ArrayList<>();
 	
 
 }

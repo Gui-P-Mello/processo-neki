@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class Skill {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "skills_seq", sequenceName = "skills_seq", allocationSize = 1)
 	@Column(name = "id_skill")
 	Integer idSkill;
 	@NotNull
