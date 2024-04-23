@@ -39,7 +39,7 @@ public class Pessoa {
 	@NotNull
 	@Column(name = "senha")
 	private String senha;
-	@OneToMany
+	@OneToMany(mappedBy = "pessoa")
 	private List<PessoaSkill> pessoaSkills = new ArrayList<>();
 	
 
